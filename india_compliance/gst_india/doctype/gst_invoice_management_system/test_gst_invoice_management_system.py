@@ -2,7 +2,7 @@
 # See license.txt
 
 import frappe
-from frappe.tests import IntegrationTestCase
+from frappe.tests.utils import FrappeTestCase
 from frappe.utils import add_to_date
 
 from india_compliance.gst_india.doctype.gst_invoice_management_system.gst_invoice_management_system import (
@@ -20,7 +20,7 @@ EXTRA_TEST_RECORD_DEPENDENCIES = []
 IGNORE_TEST_RECORD_DEPENDENCIES = []
 
 
-class TestGSTInvoiceManagementSystem(IntegrationTestCase):
+class TestGSTInvoiceManagementSystem(FrappeTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
