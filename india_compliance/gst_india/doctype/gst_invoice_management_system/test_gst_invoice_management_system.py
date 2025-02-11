@@ -2,11 +2,7 @@
 # See license.txt
 
 import frappe
-<<<<<<< HEAD
-from frappe.tests.utils import FrappeTestCase
-=======
-from frappe.tests import IntegrationTestCase, change_settings
->>>>>>> 5d78c702 (test: check if GSTIN info can be fetched)
+from frappe.tests.utils import FrappeTestCase, change_settings
 from frappe.utils import add_to_date
 
 from india_compliance.gst_india.doctype.gst_invoice_management_system.gst_invoice_management_system import (
