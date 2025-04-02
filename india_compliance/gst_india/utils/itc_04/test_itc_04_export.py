@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 from frappe.tests.utils import FrappeTestCase
-=======
-from frappe.tests import IntegrationTestCase
 from erpnext.accounts.doctype.payment_reconciliation.test_payment_reconciliation import (
     create_fiscal_year,
 )
->>>>>>> d1884f77 (fix: add required fiscal year)
 from erpnext.controllers.tests.test_subcontracting_controller import get_rm_items
 from erpnext.subcontracting.doctype.subcontracting_order.subcontracting_order import (
     make_subcontracting_receipt,
