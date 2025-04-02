@@ -51,7 +51,11 @@ def get_gstin_info(gstin, *, doc=None, throw_error=True):
 
 
 def _get_gstin_info(gstin, *, doc=None, throw_error=True):
+<<<<<<< HEAD
     validate_gstin(gstin)
+=======
+    gstin = validate_gstin(gstin)
+>>>>>>> bae7e23c (fix: minor changes)
     response = get_archived_gstin_info(gstin)
 
     if not response:
