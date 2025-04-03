@@ -221,26 +221,7 @@ Object.assign(india_compliance, {
         `).appendTo(field.$wrapper.find(".gstin-last-updated"));
 
         refresh_btn.on("click", async function () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            await india_compliance.set_gstin_status(field, transaction_date, 0, true);
-=======
-            const force_update = true;
-<<<<<<< HEAD
-            await india_compliance.set_gstin_status(
-                field,
-                transaction_date,
-                null,
-                force_update,
-                doc
-            );
->>>>>>> 8dc44168 (fix: add doc referencing to gstin search api logs)
-=======
-            await india_compliance.set_gstin_status(field, doc, force_update);
->>>>>>> a2dff6fd (fix: changes as per review)
-=======
             await india_compliance.set_gstin_status(field, doc, true);
->>>>>>> bae7e23c (fix: minor changes)
         });
     },
 
