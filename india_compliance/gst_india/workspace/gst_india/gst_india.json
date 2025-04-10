@@ -349,11 +349,5 @@
    "type": "DocType"
   }
  ],
-<<<<<<< HEAD
  "title": "GST India"
 }
-=======
- "title": "GST India",
- "type": "Workspace"
-}
->>>>>>> 2083d527 (feat: GST Purchase Register Beta Report (#2584))
