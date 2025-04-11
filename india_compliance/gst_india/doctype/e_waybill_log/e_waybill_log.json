@@ -142,10 +142,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "column_break1",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "column_break_grbd",
    "fieldtype": "Column Break"
   },
@@ -183,7 +179,7 @@
    "link_fieldname": "ewaybill"
   }
  ],
- "modified": "2025-02-26 11:48:34.983047",
+ "modified": "2025-04-10 09:56:46.803698",
  "modified_by": "Administrator",
  "module": "GST India",
  "name": "e-Waybill Log",
