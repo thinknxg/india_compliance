@@ -246,24 +246,38 @@ def validate_doc_references(doc, method=None):
         frappe.msgprint(error_msg, alert=True, indicator="yellow")
 
 
-def get_gstin_field_map(doc):
-    # Subcontracting Receipt
-    gstin_field_map = frappe._dict(
+def get_doctype_field_map(doc):
+    # Subcontracting Receipt and Subcontracting Order
+    doctype_field_map = frappe._dict(
         {
             "company_gstin_field": "company_gstin",
             "party_gstin_field": "supplier_gstin",
+            "company_address_field": "billing_address",
+            "gst_category_field": "gst_category",
         }
     )
 
     if doc.doctype == "Stock Entry":
         if not doc.is_return:
-            gstin_field_map.company_gstin_field = "bill_from_gstin"
-            gstin_field_map.party_gstin_field = "bill_to_gstin"
+            doctype_field_map.update(
+                {
+                    "company_gstin_field": "bill_from_gstin",
+                    "party_gstin_field": "bill_to_gstin",
+                    "company_address_field": "bill_from_address",
+                    "gst_category_field": "bill_to_gst_category",
+                }
+            )
         else:
-            gstin_field_map.company_gstin_field = "bill_to_gstin"
-            gstin_field_map.party_gstin_field = "bill_from_gstin"
+            doctype_field_map.update(
+                {
+                    "company_gstin_field": "bill_to_gstin",
+                    "party_gstin_field": "bill_from_gstin",
+                    "company_address_field": "bill_to_address",
+                    "gst_category_field": "bill_from_gst_category",
+                }
+            )
 
-    return gstin_field_map
+    return doctype_field_map
 
 
 def validate_transaction(doc, method=None):
@@ -271,8 +285,9 @@ def validate_transaction(doc, method=None):
 =======
     validate_items(doc)
 
-    gstin_field_map = get_gstin_field_map(doc)
+    doctype_field_map = get_doctype_field_map(doc)
 
+<<<<<<< HEAD
     company_gstin_field = gstin_field_map.company_gstin_field
     party_gstin_field = gstin_field_map.party_gstin_field
 
@@ -288,6 +303,12 @@ def validate_transaction(doc, method=None):
         # Subcontracting Receipt and Subcontracting Order
         company_address_field = "billing_address"
         gst_category_field = "gst_category"
+=======
+    company_gstin_field = doctype_field_map.company_gstin_field
+    party_gstin_field = doctype_field_map.party_gstin_field
+    company_address_field = doctype_field_map.company_address_field
+    gst_category_field = doctype_field_map.gst_category_field
+>>>>>>> 5ab74e84 (fix: include address and gst category field in map)
 
     if doc.place_of_supply:
         validate_place_of_supply(doc)
@@ -364,10 +385,10 @@ class SubcontractingGSTAccounts(GSTAccounts):
         if is_outward_stock_entry(self.doc):
             return
 
-        gst_field_map = get_gstin_field_map(self.doc)
+        doctype_field_map = get_doctype_field_map(self.doc)
 
-        company_gstin = self.doc.get(gst_field_map.company_gstin_field)
-        party_gstin = self.doc.get(gst_field_map.party_gstin_field)
+        company_gstin = self.doc.get(doctype_field_map.company_gstin_field)
+        party_gstin = self.doc.get(doctype_field_map.party_gstin_field)
 
         if not party_gstin or company_gstin != party_gstin:
             return
