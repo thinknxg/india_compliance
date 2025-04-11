@@ -281,34 +281,12 @@ def get_doctype_field_map(doc):
 
 
 def validate_transaction(doc, method=None):
-<<<<<<< HEAD
-=======
-    validate_items(doc)
-
     doctype_field_map = get_doctype_field_map(doc)
 
-<<<<<<< HEAD
-    company_gstin_field = gstin_field_map.company_gstin_field
-    party_gstin_field = gstin_field_map.party_gstin_field
-
->>>>>>> 430b741c (fix: validate same party gstin based on document field in subcontracting transaction)
-    if doc.doctype == "Stock Entry":
-        if not doc.is_return:
-            company_address_field = "bill_from_address"
-            gst_category_field = "bill_to_gst_category"
-        else:
-            company_address_field = "bill_to_address"
-            gst_category_field = "bill_from_gst_category"
-    else:
-        # Subcontracting Receipt and Subcontracting Order
-        company_address_field = "billing_address"
-        gst_category_field = "gst_category"
-=======
     company_gstin_field = doctype_field_map.company_gstin_field
     party_gstin_field = doctype_field_map.party_gstin_field
     company_address_field = doctype_field_map.company_address_field
     gst_category_field = doctype_field_map.gst_category_field
->>>>>>> 5ab74e84 (fix: include address and gst category field in map)
 
     if doc.place_of_supply:
         validate_place_of_supply(doc)
