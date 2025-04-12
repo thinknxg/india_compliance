@@ -1366,7 +1366,7 @@ class TestSUPECOM(FrappeTestCase):
 ##### ERROR JSON TEST CASES #####
 
 
-class TestHSNSUMError(IntegrationTestCase):
+class TestHSNSUMError(FrappeTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
