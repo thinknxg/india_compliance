@@ -596,9 +596,6 @@ def validate_items(doc, throw):
     if not doc.get("items"):
         return
 
-    if not any(row.get("dont_recompute_tax") for row in doc.taxes):
-        return
-
     item_tax_templates = frappe._dict()
     items_with_duplicate_taxes = []
     non_gst_items = []
@@ -638,6 +635,9 @@ def validate_items(doc, throw):
             ).format(", ".join(bold(row_no) for row_no in non_gst_items)),
             title=_("Invalid Items"),
         )
+
+    if not any(row.get("dont_recompute_tax") for row in doc.taxes):
+        return
 
     if items_with_duplicate_taxes:
         if not throw:
