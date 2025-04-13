@@ -1403,12 +1403,8 @@ class ItemGSTDetails:
         tax_details = frappe._dict()
 
         for row in self.doc.get("items"):
-<<<<<<< HEAD
-            key = row.item_code or row.item_name
-=======
             key = self.get_item_key(row)
 
->>>>>>> 8fb2bdd9 (fix: support same item with different tax rates)
             if key not in tax_details:
                 tax_details[key] = self.item_defaults.copy()
 
