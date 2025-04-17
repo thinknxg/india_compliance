@@ -87,11 +87,6 @@ class TestPurchaseInvoice(FrappeTestCase):
             frappe.parse_json(frappe.message_log[-1]).get("message"),
             "Transaction Name must be 16 characters or fewer to meet GST requirements",
         )
-<<<<<<< HEAD
-=======
-
-        # Reset autoname (as it's cached)
-        pinv.meta.autoname = "naming_series:"
 
     @change_settings("GST Settings", {"enable_overseas_transactions": 1})
     @change_settings("GST Settings", {"validate_hsn_code": 0})
@@ -111,4 +106,3 @@ class TestPurchaseInvoice(FrappeTestCase):
         )
 
         frappe.db.set_value("Item", "_Test Service Item", "gst_hsn_code", "999900")
->>>>>>> 44fe923b (fix: validate hsn code for Overseas purchase invoice)
