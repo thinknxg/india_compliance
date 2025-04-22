@@ -2,14 +2,10 @@
 # For license information, please see license.txt
 
 import re
-
 from unittest import TestCase
 
 import frappe
-<<<<<<< HEAD
-=======
-from frappe.tests import IntegrationTestCase, change_settings
->>>>>>> 1645d119 (fix: Validate GST HSN Code for JSON Upload/Download (#3320))
+from frappe.tests import change_settings
 
 from india_compliance.gst_india.report.hsn_wise_summary_of_outward_supplies.hsn_wise_summary_of_outward_supplies import (
     execute as run_report,
