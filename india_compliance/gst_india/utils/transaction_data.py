@@ -9,11 +9,8 @@ from india_compliance.gst_india.constants import (
     GST_REFUND_TAX_TYPES,
     GST_TAX_RATES,
     GST_TAX_TYPES,
-<<<<<<< HEAD
     SUBCONTRACTING_DOCTYPES,
-=======
     TAXABLE_GST_TREATMENTS,
->>>>>>> e62a16ae (fix: include only Taxable and Zero-Rated supplies for taxable value in Purchase reco tool (#3321))
 )
 from india_compliance.gst_india.constants.e_waybill import (
     TRANSPORT_MODES,
