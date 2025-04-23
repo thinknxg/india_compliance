@@ -5,7 +5,7 @@ import re
 from unittest import TestCase
 
 import frappe
-from frappe.tests import change_settings
+from frappe.tests.utils import change_settings
 
 from india_compliance.gst_india.report.hsn_wise_summary_of_outward_supplies.hsn_wise_summary_of_outward_supplies import (
     execute as run_report,
