@@ -805,7 +805,7 @@ def fetch_pending_boe_invoices(doctype, txt, searchfield, start, page_len, filte
     if filters.name and filters.name[1] is None:
         filters.name = ["!=", ""]
 
-    data = frappe.get_all(
+    return frappe.get_all(
         "Purchase Invoice",
         filters={
             **filters,
@@ -818,5 +818,3 @@ def fetch_pending_boe_invoices(doctype, txt, searchfield, start, page_len, filte
         limit_page_length=page_len,
         distinct=True,
     )
-
-    return data
